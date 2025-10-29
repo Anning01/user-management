@@ -1,0 +1,18 @@
+server:
+  port: "8080"
+  readTimeout: 5
+  writeTimeout: 10
+  maxHeaderBytes: 1048576
+
+database:
+  driver: "mysql"
+  host: "localhost"
+  port: "3306"
+  username: "root"
+  password: ""
+  name: "user_management"
+  sslMode: "disable"
+
+jwt:
+  secretKey: "your-secret-key"
+  expirationHours: 24
