@@ -3,8 +3,8 @@ package middleware
 import (
 	"net/http"
 	"strings"
-	"user-management/internal/config"
-	"user-management/pkg/security"
+	"github.com/Anning01/user-management/internal/config"
+	"github.com/Anning01/user-management/pkg/security"
 
 	"github.com/gin-gonic/gin"
 )

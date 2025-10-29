@@ -1,9 +1,9 @@
 package api
 
 import (
-	"user-management/internal/api/handlers"
-	"user-management/internal/api/middleware"
-	"user-management/internal/config"
+	"github.com/Anning01/user-management/internal/api/handlers"
+	"github.com/Anning01/user-management/internal/api/middleware"
+	"github.com/Anning01/user-management/internal/config"
 
 	"github.com/gin-gonic/gin"
 )

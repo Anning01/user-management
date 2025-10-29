@@ -2,11 +2,11 @@ package handlers
 
 import (
 	"net/http"
-	"strconv"
-	"user-management/internal/domain"
-	"user-management/internal/service"
-	"user-management/internal/util"
-	"user-management/pkg/security"
+
+	"github.com/Anning01/user-management/internal/domain"
+	"github.com/Anning01/user-management/internal/service"
+	"github.com/Anning01/user-management/internal/util"
+	"github.com/Anning01/user-management/pkg/security"
 
 	"github.com/Anning01/user-management/internal/config"
 	"github.com/gin-gonic/gin"
