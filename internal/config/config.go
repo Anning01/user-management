@@ -6,12 +6,6 @@ import (
 	"github.com/spf13/viper"
 )
 
-type Config struct {
-	Server   ServerConfig
-	Database DatabaseConfig
-	JWT      JWTConfig
-}
-
 type ServerConfig struct {
 	Port           string
 	ReadTimeout    time.Duration
@@ -27,6 +21,12 @@ type DatabaseConfig struct {
 	Password string
 	Name     string
 	SSLMode  string
+}
+
+type Config struct {
+	Server   ServerConfig
+	Database DatabaseConfig
+	JWT      JWTConfig
 }
 
 type JWTConfig struct {
