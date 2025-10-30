@@ -8,22 +8,50 @@ import (
 	"os/signal"
 	"syscall"
 	"time"
-	"user-management/internal/api"
-	"user-management/internal/api/handlers"
-	"user-management/internal/config"
-	"user-management/internal/repository"
-	"user-management/internal/service"
-	"user-management/migrations"
-	"user-management/pkg/logger"
+
+	"github.com/Anning01/user-management/internal/api"
+	"github.com/Anning01/user-management/internal/api/handlers"
+	"github.com/Anning01/user-management/internal/config"
+	"github.com/Anning01/user-management/internal/repository"
+	"github.com/Anning01/user-management/internal/service"
+	"github.com/Anning01/user-management/migrations"
+	"github.com/Anning01/user-management/pkg/logger"
 
 	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
 )
 
 func main() {
+	// 加载 .env 文件（如果存在）
+	// 如果文件不存在，不会报错，会继续使用系统环境变量
+	if err := godotenv.Load(); err != nil {
+		log.Println("No .env file found, using system environment variables")
+	} else {
+		log.Println("Loaded .env file successfully")
+	}
+
 	// 加载配置
 	cfg, err := config.Load()
 	if err != nil {
 		log.Fatalf("Failed to load config: %v", err)
+	}
+
+	// 打印配置信息（用于调试，不显示敏感信息）
+	log.Printf("Configuration loaded:")
+	log.Printf("  Server Port: %s", cfg.Server.Port)
+	log.Printf("  Database Host: %s", cfg.Database.Host)
+	log.Printf("  Database Port: %s", cfg.Database.Port)
+	log.Printf("  Database Name: %s", cfg.Database.Name)
+	log.Printf("  Database Username: %s", cfg.Database.Username)
+	if cfg.Database.Password == "" {
+		log.Printf("  Database Password: (empty) - connecting without password")
+	} else {
+		log.Printf("  Database Password: (set, length: %d)", len(cfg.Database.Password))
+	}
+	if cfg.JWT.SecretKey == "" {
+		log.Printf("  ⚠️  WARNING: JWT Secret Key is empty! This is insecure for production!")
+	} else {
+		log.Printf("  JWT Secret Key: (set, length: %d)", len(cfg.JWT.SecretKey))
 	}
 
 	// 初始化日志

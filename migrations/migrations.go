@@ -1,14 +1,14 @@
 package migrations
 
 import (
-	"user-management/internal/domain"
+	"github.com/Anning01/user-management/internal/domain"
 
 	"github.com/go-gormigrate/gormigrate/v2"
 	"gorm.io/gorm"
 )
 
 func Migrate(db *gorm.DB) error {
-	m := gormigrate.New(db, gormigrate.DefaultOptions(), []*gormigrate.Migration{
+	m := gormigrate.New(db, gormigrate.DefaultOptions, []*gormigrate.Migration{
 		{
 			ID: "20230101000001",
 			Migrate: func(tx *gorm.DB) error {

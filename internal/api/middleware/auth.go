@@ -1,10 +1,10 @@
 package middleware
 
 import (
-	"net/http"
-	"strings"
 	"github.com/Anning01/user-management/internal/config"
 	"github.com/Anning01/user-management/pkg/security"
+	"net/http"
+	"strings"
 
 	"github.com/gin-gonic/gin"
 )

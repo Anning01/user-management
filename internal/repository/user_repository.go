@@ -1,7 +1,7 @@
 package repository
 
 import (
-	"user-management/internal/domain"
+	"github.com/Anning01/user-management/internal/domain"
 
 	"gorm.io/gorm"
 )

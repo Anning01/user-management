@@ -44,3 +44,9 @@ structure.json
 .pnpm-store
 .vscode
 .idea
+
+.claude
+
+bin
+
+.env

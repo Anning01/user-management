@@ -3,8 +3,8 @@ package repository
 import (
 	"fmt"
 	"time"
-	"user-management/internal/config"
-	"user-management/internal/domain"
+
+	"github.com/Anning01/user-management/internal/config"
 
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
@@ -12,6 +12,7 @@ import (
 )
 
 func NewDBConnection(cfg *config.DatabaseConfig) (*gorm.DB, error) {
+	fmt.Println(cfg.Username, cfg.Password, cfg.Host, cfg.Port, cfg.Name)
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=True&loc=Local",
 		cfg.Username, cfg.Password, cfg.Host, cfg.Port, cfg.Name)
 

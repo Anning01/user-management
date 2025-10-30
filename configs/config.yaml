@@ -1,0 +1,18 @@
+server:
+  port: "8080"
+  readTimeout: 5    # 秒
+  writeTimeout: 10  # 秒
+  maxHeaderBytes: 1048576  # 1MB
+
+database:
+  driver: "mysql"
+  host: "localhost"
+  port: "3306"
+  username: "root"
+  password: ""  # 默认为空，请在 .env 中设置
+  name: "user_management"
+  sslMode: "disable"
+
+jwt:
+  secretKey: ""  # 默认为空，请在 .env 中设置
+  expirationHours: 24  # token有效期（小时）
